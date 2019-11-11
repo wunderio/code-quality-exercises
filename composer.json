@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "wunderio/code-quality": "dev-feature/33-add-support-for-non-drupal-8-projects"
+    }
+}

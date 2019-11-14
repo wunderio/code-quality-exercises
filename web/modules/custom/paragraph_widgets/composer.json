@@ -1,0 +1,16 @@
+{
+    "name": "wunderio/paragraph_widgets",
+    "description": "Paragraph widget",
+    "type": "drupal-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guntis",
+            "email": "guntis.jakovins@wunder.io"
+        }
+    ],
+    "require": {
+        "drupal/core": "^8.7"
+        "drupal/paragraphs": "^1.10"
+    }
+}

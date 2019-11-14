@@ -107,6 +107,8 @@ class BundleLimitParagraphsWidget extends InlineParagraphsWidget
       unset($elements['add_more']['add_more_button_' . $type_name]);
     }
 
+    ksm($elements);
+
     return $elements;
   }
 

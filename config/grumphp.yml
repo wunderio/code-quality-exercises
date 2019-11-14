@@ -1,0 +1,26 @@
+parameters:
+  ascii:
+    failed: ~
+    succeeded: ~
+  tasks:
+    php_compatibility:
+      run_on: ['web/modules/custom', 'web/themes/custom']
+    php_check_syntax:
+      run_on: ['web/modules/custom', 'web/themes/custom']
+    phpcs:
+      run_on: ['web/modules/custom', 'web/themes/custom']
+    ecs:
+      config: ecs.yml
+      run_on: ['web/modules/custom', 'web/themes/custom']
+    yaml_lint: ~
+    json_lint: ~
+    phpstan_check_deprecation:
+      run_on: ['web/modules/custom', 'web/themes/custom']
+  extensions:
+    - Wunderio\GrumPHP\Task\PhpCompatibility\PhpCompatibilityExtensionLoader
+    - Wunderio\GrumPHP\Task\PhpCheckSyntax\PhpCheckSyntaxExtensionLoader
+    - Wunderio\GrumPHP\Task\Ecs\EcsExtensionLoader
+    - Wunderio\GrumPHP\Task\Phpcs\PhpcsExtensionLoader
+    - Wunderio\GrumPHP\Task\PhpstanCheckDeprecation\PhpstanCheckDeprecationExtensionLoader
+    - Wunderio\GrumPHP\Task\YamlLint\YamlLintExtensionLoader
+    - Wunderio\GrumPHP\Task\JsonLint\JsonLintExtensionLoader

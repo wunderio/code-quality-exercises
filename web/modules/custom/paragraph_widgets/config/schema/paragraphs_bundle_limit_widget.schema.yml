@@ -1,6 +1,6 @@
 field.widget.settings.bundle_limit_paragraphs_widget:
   type: mapping
-  mapping:
+  - mapping:
     title:
       type: string
     title_plural:
@@ -18,7 +18,7 @@ field.widget.settings.bundle_limit_paragraphs_widget:
 
 field.widget.settings.select_list_timestamp:
   type: mapping
-  mapping:
+  - mapping:
     hours:
       type: boolean
     minutes:

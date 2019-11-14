@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ */
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function paragraph_widgets_uninstall() {
+  db_query("DELETE FROM {config} WHERE name LIKE 'core.entity_form_display.paragraph.image.default'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'core.entity_form_display.paragraph.text.default'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'core.entity_view_display.paragraph.image.default'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'core.entity_view_display.paragraph.text.default'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'field.field.paragraph.image.field_image'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'field.field.paragraph.text.field_content'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'field.storage.paragraph.field_content'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'field.storage.paragraph.field_image'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'paragraphs.paragraphs_type.image'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'paragraphs.paragraphs_type.text'");
+  drupal_flush_all_caches();
+}

@@ -11,4 +11,5 @@ get get the environment up and running fast:
     git clone git@github.com:wunderio/code-quality-exercises.git
     lando start
     lando db-import config/init.sql
+    lando drush cim -y
     lando drush uli

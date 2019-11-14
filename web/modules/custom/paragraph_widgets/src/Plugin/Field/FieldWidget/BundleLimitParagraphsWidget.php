@@ -18,16 +18,16 @@ use Drupal\paragraphs\Plugin\Field\FieldWidget\InlineParagraphsWidget;
  *   }
  * )
  */
-class BundleLimitParagraphsWidget extends InlineParagraphsWidget {
+
+
+class BundleLimitParagraphsWidget extends InlineParagraphsWidget
+{
 
   /**
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return [
-      'bundle_limits' => [],
-      'bundle_limit_size' => 0,
-    ] + parent::defaultSettings();
+    return array('bundle_limits' => array(), 'bundle_limit_size' => 0) + parent::defaultSettings();
   }
 
   /**
@@ -37,11 +37,11 @@ class BundleLimitParagraphsWidget extends InlineParagraphsWidget {
     $elements = parent::settingsForm($form, $form_state);
     $settings = $this->getSettings();
 
-    $elements['bundle_limits'] = [
+    $elements['bundle_limits'] = array(
       '#type' => 'fieldset',
       '#title' => $this->t('Bundle limits'),
       '#description' => $this->t('Limit how many entities per bundle can be added to field. Type 0 for no limit.'),
-    ];
+    );
     foreach ($this->getAllowedTypes() as $type_name => $type) {
       $bundle_limit = $settings['bundle_limit_size'];
       if (isset($this->getSetting('bundle_limits')[$type_name])) {
@@ -67,19 +67,20 @@ class BundleLimitParagraphsWidget extends InlineParagraphsWidget {
     $field_name = $this->fieldDefinition->getName();
     $this->fieldParents = $form['#parents'];
     $field_state = static::getWidgetState($this->fieldParents, $field_name, $form_state);
-    $types_used = [];
-    if (!isset($field_state['paragraphs'])) {
+    // Get all used paragraphs and group them by entity bundle type to determine if limit is reached.
+    $types_used = array();
+    if (!isset($field_state['paragraphs']))) {
       return $elements;
     }
     foreach ($field_state['paragraphs'] as $paragraph_data) {
       if (!isset($paragraph_data['entity'])) {
-        continue;
+        continue
       }
       if (!isset($paragraph_data['mode'])) {
-        continue;
+        continue
       }
       if ($paragraph_data['mode'] === 'removed') {
-        continue;
+        continue
       }
 
       if ($paragraph_data['entity'] instanceof Paragraph) {

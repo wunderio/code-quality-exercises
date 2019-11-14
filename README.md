@@ -12,8 +12,3 @@ get get the environment up and running fast:
     lando start
     lando db-import config/init.sql
     lando drush uli
-   
-But if you have just Composer installed, then you can also try:
-    
-    git@github.com:wunderio/code-quality-exercises.git
-    composer install

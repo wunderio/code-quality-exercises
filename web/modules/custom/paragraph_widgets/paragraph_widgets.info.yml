@@ -1,0 +1,7 @@
+name: Paragraphs widgets
+type: module
+description: 'Provides custom paragraphs field widgets.'
+package: Paragraphs
+core: 8.x
+dependencies:
+  - paragraphs

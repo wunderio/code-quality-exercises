@@ -1,0 +1,31 @@
+field.widget.settings.bundle_limit_paragraphs_widget:
+  type: mapping
+  mapping:
+    title:
+      type: string
+    title_plural:
+      type: string
+    edit_mode:
+      type: string
+    add_mode:
+      type: string
+    form_display_mode:
+      type: string
+    default_paragraph_type:
+      type: string
+    bundle_limits:
+      type: mapping
+
+field.widget.settings.select_list_timestamp:
+  type: mapping
+  mapping:
+    hours:
+      type: boolean
+    minutes:
+      type: boolean
+    seconds:
+      type: boolean
+    year_from:
+      type: integer
+    year_to:
+      type: integer

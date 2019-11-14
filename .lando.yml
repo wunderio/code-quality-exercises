@@ -1,5 +1,38 @@
-name: code-quality-exercises
+name: quality
 recipe: drupal8
 
 config:
-  php: '7.1'
+  webroot: web
+  via: nginx
+  php: '7.3'
+  database: mariadb:10.2
+
+tooling:
+  grumphp:
+    description: Runs grumphp commands
+    cmd:
+      - appserver: ./vendor/bin/grumphp
+
+services:
+  appserver:
+    overrides:
+      environment:
+        HASH_SALT: notsosecurehash
+        DRUSH_OPTIONS_URI: https://quality.lndo.site
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+
+proxy:
+  mailhog:
+    - mail-silta.lndo.site
+
+events:
+  pre-start:
+    - appserver: composer install
+  post-db-import:
+    - appserver: cd $LANDO_WEBROOT && drush cr -y
+
+# Tested with Lando version
+version: v3.0.0-rc.22

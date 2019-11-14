@@ -10,7 +10,7 @@ get get the environment up and running fast:
        
     git clone git@github.com:wunderio/code-quality-exercises.git
     lando start
-    lando composer install
+    lando drush si -y
    
 But if you have just Composer installed, then you can also try:
     
